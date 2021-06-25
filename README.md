@@ -15,4 +15,5 @@ triplet loss
 4. evaluation (tSNE, accuracy)
 
 Run the code by using "python [file name]" command at linux system.
+
 reference : https://github.com/jtdsouza/w251-WildTrackAI.git
