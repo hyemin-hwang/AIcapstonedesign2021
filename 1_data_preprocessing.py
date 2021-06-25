@@ -37,18 +37,24 @@ from tensorflow.keras.applications.xception import preprocess_input as XceptionP
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input as MNPre
 from tensorflow.keras.applications.imagenet_utils import preprocess_input
 from tensorflow.keras.applications.resnet50 import preprocess_input as ResPre
+from tensorflow.keras.applications.nasnet import preprocess_input as LargePre
 
 # Plotting 
 #%matplotlib inline
 import matplotlib.pyplot as plt
 
-#Set up path for training/ test data. Need to map U C Berkeley - Darragh/ shared to your personal GDrive for this to work. 
+#Set up path for training/ test data.
+#README.md 파일에 있는 dataset이 저장된 경로에서 dataset을 가져온 후
+#Training_Data, Test_Data 폴더가 들어 있는 폴더에 csv폴더와 Presentations폴더를 만들어 추가한다.
+#그리고 csv폴더 안에 testing폴더를 새로 만들어 추가해준다.
+#만든 폴더의 경로를 다음과 같은 경로를 나타내는 변수에 지정해준다.
 path="/mnt/data/guest1/crop_images/Training_Data"
 test_path="/mnt/data/guest1/crop_images/Test_Data"
 csvpath="/mnt/data/guest1/crop_images/csv"
 os.listdir(path)
 
 # Function to load and individual image to a specified size.
+# Pre-trained model에 맞춰 input image size를 정해주고 image를 load해준다.
 def temp_load_image(image,preprocessor,size=(299,299)):
   try:
     print(image)
@@ -86,7 +92,7 @@ def load_image(image,preprocessor,size=(224,224)):
 
 # Function to load image data set from specified folder. Will be reshaped to size specified in size parameter.
 # Once images are processed, writes back out to a csv file
-
+# csv file에는 이미지의 정보가 담긴다.(A PIL Image instance.)
 def LoadDataSet(folder,img_output,label_output,preprocessor,size=(224,224)):
   Keys=[]
   with open(img_output, 'w') as f:
@@ -102,7 +108,7 @@ def LoadDataSet(folder,img_output,label_output,preprocessor,size=(224,224)):
           if footprint.find(" RH ")>0:
             continue
           else:
-            x=load_image(os.path.join(print_path,footprint),preprocessor,(224,224))
+            x=load_image(os.path.join(print_path,footprint),preprocessor,(224,224)) #return값: A PIL Image instance.
             if x.shape[0]==0:
               continue
             else:
@@ -118,10 +124,9 @@ def LoadDataSet(folder,img_output,label_output,preprocessor,size=(224,224)):
 LoadDataSet(path,os.path.join(csvpath,"Training-Images-res-224.csv"),os.path.join(csvpath,"Training-Labels-res-224.txt"),ResPre,(224,224))
 LoadDataSet(test_path,os.path.join(csvpath,"Test-Images-res-224.csv"),os.path.join(csvpath,"Test-Labels-res-224.txt"),ResPre,(224,224))
 
-#Create similar csv files for Mobilenet (224x224) and Inception net (299x299)
-
-#LoadDataSet(path,os.path.join(csvpath,"Training-Images-299.csv"),os.path.join(csvpath,"Training-Labels-299.txt"),preprocess_input,(299,299))
-#LoadDataSet(test_path,os.path.join(csvpath,"Test-Images-299.csv"),os.path.join(csvpath,"Test-Labels-299.txt"),preprocess_input,(299,299))
+#Create similar csv files for Mobilenet (224x224) and NASNetLarge (331x331)
+LoadDataSet(path,os.path.join(csvpath,"Training-Images-331.csv"),os.path.join(csvpath,"Training-Labels-331.txt"),preprocess_input,(331,331))
+LoadDataSet(test_path,os.path.join(csvpath,"Test-Images-331.csv"),os.path.join(csvpath,"Test-Labels-331.txt"),preprocess_input,(331,331))
 LoadDataSet(path,os.path.join(csvpath,"Train-Images-Mobile-224.csv"),os.path.join(csvpath,"Train-Labels-Mobile-224.txt"),MNPre,(224,224))
 LoadDataSet(test_path,os.path.join(csvpath,"Test-Images-Mobile-224.csv"),os.path.join(csvpath,"Test-Labels-Mobile-224.txt"),MNPre,(224,224))
 
