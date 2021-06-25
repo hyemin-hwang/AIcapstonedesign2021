@@ -5,8 +5,8 @@ The project was produced as the final project for the AI capstoneedesign 2021 cl
 Participants are Lee Ho-jeong and Hwang Hye-min.
 
 dataset
-1. Cropped Images of Original Images (for One footprint)
-2. augmented Images of mi and pp
+1. Cropped Images of Original Images (for One footprint) --> folder : crop_images
+2. augmented Images of mi and pp --> folder : mi_pp
 
 You can accces the dataset at this URL:
 
