@@ -27,7 +27,7 @@ import pickle
 
 from tensorflow.keras import backend as K
 
-# Keras Imagenet pre=-trained models and pre-processors
+# Keras Imagenet pre-trained models and pre-processors
 from keras.preprocessing import image as KImage
 from keras.preprocessing.image import ImageDataGenerator
 
@@ -84,13 +84,14 @@ import pandas as pd
 random.seed(42)
 
 #Set up various paths
-#Set up path for csv files containing preprocessed images. CHange subfolder names to match your setup in google drive
+#Set up path for csv files containing preprocessed images.
+#저장한 폴더의 경로에 맞춰서 경로 변수를 정의한다.
 csvpath='/mnt/data/guest1/crop_images/csv'
 path="/mnt/data/guest1/crop_images/Training_Data"
 test_path=" /mnt/data/guest1/crop_images/Test_Data"
 modelpath='/mnt/data/guest1/crop_images/csv'
 
-BASE_MODEL="resnet"  #CHoices are: vgg16, mobilenetv2, Xception
+BASE_MODEL="resnet"
 
 if BASE_MODEL=='vgg16':
   train_imagefile="Training-Images-224.csv"
@@ -157,7 +158,7 @@ elif BASE_MODEL=="densenet":
   savemodel='dense_best_model.h5'
 
 
-  #Function to load processed image data in csv files (both training and test, input data labels)
+#Function to load processed image data in csv files (both training and test, input data labels)
 def LoadData(train_imagefile=train_imagefile,train_labelfile=train_labelfile,
              test_imagefile=test_imagefile,test_labelfile=test_labelfile):
   #Training Data Set
@@ -318,6 +319,7 @@ def get_img(DB,species,key):
 
   return x
 
+# 다른 성능 지표로써 모델을 평가하기 위해 추가한 recall, precision, f1score
 from keras import backend as K
 def recall(y_target, y_pred):
     # clip(t, clip_value_min, clip_value_max) : clip_value_min~clip_value_max 이외 가장자리를 깎아 낸다
@@ -366,7 +368,7 @@ def f1score(y_target, y_pred):
     return _f1score
 
 # Model Generator class to generate triple sets of images for a given species, 
-# given batch size adn number of steps.
+# given batch size and number of steps.
 
 def triples_generator(folder,DB,species,dataset="train",batch_size=4,num_steps=100):
   fname='triples_'+str(species)+'_'+dataset+'.csv'
@@ -392,7 +394,7 @@ def triples_generator(folder,DB,species,dataset="train",batch_size=4,num_steps=1
       yield (triples, target)
 
 
-#CUstom loss function for Triplets Network
+#Custom loss function for Triplets Network
 def triplet_loss(y_true,y_pred,alpha=1.2):
   ln=y_pred.shape.as_list()[-1]
   anchor=y_pred[:,0:int(ln/3)]
