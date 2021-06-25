@@ -24,6 +24,7 @@ triplet loss>
   2. classify species (in this project only dog exist) --> file: 2_species_classification
   3. identification classification (bori, mi, pony, pp, wangbal) --> file: 3_individual_identification.py
   4. evaluation (tSNE, accuracy) --> file: 4_evaluation_of_3.py
+     실제로 4과정에서는 t-SNE의 결과를 보기 위해서 구글 코랩에서 실험을 진행하였다. 그 결과는 4_evaluation_of_3.ipynb 파일에서 볼 수 있다.
 
 Run the code by using "python [file name]" command at linux system.
 
