@@ -4,6 +4,10 @@ The project was produced as the final project for the AI capstoneedesign 2021 cl
 
 Participants are Lee Ho-jeong and Hwang Hye-min.
 
+preprocess
+1. crop the image for showing one footprint
+2. data augmentation of mi and pp
+
 triplet loss 
 1. preporcess (change size to 224x224(VGG16, MobileNetv2, Exception, ResNet) or 331x331(NASNetLarge))
 2. classify species (in this project only dog exist)
