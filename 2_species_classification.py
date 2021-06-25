@@ -5,7 +5,6 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 #try:
-  # %tensorflow_version only exists in Colab.
 #  %tensorflow_version 2.x
 #except Exception:
 #  pass
@@ -35,6 +34,8 @@ from tensorflow.keras.applications.vgg19 import VGG19
 from tensorflow.keras.applications.vgg19 import preprocess_input as VGG19Pre
 from tensorflow.keras.applications.densenet import DenseNet121
 from tensorflow.keras.applications.densenet import preprocess_input as DensePre
+from tensorflow.keras.applications.nasnet import NASNetLarge
+from tensorflow.keras.applications.nasnet import preprocess_input as LargePre
 
 # Data Preprocessing
 from sklearn.preprocessing import LabelEncoder
@@ -129,7 +130,18 @@ elif BASE_MODEL=="xception":
   saved_model_filename='species_classification_xception_model.h5'
   preprocessor=XceptionPre
 
-  # Set up path for csv files containing preprocessed images. Change subfolder names to match your setup in Google Drive.
+elif BASE_MODEL=="nasnetlarge":
+  train_imagefile="Training-Images-331.csv"
+  train_labelfile="Training-Labels-331.txt"
+  test_imagefile="Test-Images-331.csv"
+  test_labelfile="Test-Labels-331.txt"
+  input_shape=(331,331,3)
+  zero_model=Xception(weights='imagenet',include_top=False,input_shape=input_shape)
+  saved_model_filename='species_classification_nasnetlarge_model.h5'
+  preprocessor=LargePre
+  
+# Set up path for csv files containing preprocessed images.
+# 해당 csv파일이 있는 경로에 맞춰서 변수값을 정의한다.
 csvpath='/mnt/data/guest1/crop_images/csv'
 
 # Function to load processed image data in csv files (both training and test data and their corresponding labels)
@@ -209,7 +221,7 @@ len(Y_Train)
 tf.keras.backend.clear_session()
 #vgg=VGG16(weights='imagenet',include_top=False,input_shape=input_shape)
 
-resnet50=ResNet50(weights='imagenet', include_top=False, input_shape=input_shape)
+resnet50=ResNet50(weights='imagenet', include_top=False, input_shape=input_shape) # resnet50모델을 사용하기 위해 해당 모델만 주석처리를 하지 않았다.
 
 #densenet=DenseNet121(weights='imagenet', include_top=False, input_shape=input_shape)
 
