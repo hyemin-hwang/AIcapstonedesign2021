@@ -4,12 +4,6 @@
 
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-#try:
-  # %tensorflow_version only exists in Colab.
-#  %tensorflow_version 2.x
-#except Exception:
-#  pass
-
 import tensorflow as tf
 
 #Import Libraries
@@ -75,7 +69,8 @@ import seaborn as sns
 import pandas as pd
 
 #Set up various paths
-#Set up path for csv files containing preprocessed images. CHange subfolder names to match your setup in google drive
+#Set up path for csv files containing preprocessed images.
+#이전 코드의 파일에 있는 경로와 같이 설정해준다.
 csvpath='/mnt/data/guest1/crop_images/csv'
 path="/mnt/data/guest1/crop_images/Training_Data"
 test_path="/mnt/data/guest1/crop_images/Test_Data"
