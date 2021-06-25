@@ -20,10 +20,10 @@ preprocess>
   2. data augmentation of mi and pp --> file: aug.ipynb
 
 triplet loss>
-  1. preprocess (change size to 224x224(VGG16, MobileNetv2, Exception, ResNet) or 331x331(NASNetLarge))
-  2. classify species (in this project only dog exist)
-  3. identification classification (bori, mi, pony, pp, wangbal)
-  4. evaluation (tSNE, accuracy)
+  1. preprocess (change size to 224x224(VGG16, MobileNetv2, Exception, ResNet) or 331x331(NASNetLarge)) --> file: 1_data_preprocessing.py
+  2. classify species (in this project only dog exist) --> file: 2_species_classification
+  3. identification classification (bori, mi, pony, pp, wangbal) --> file: 3_individual_identification.py
+  4. evaluation (tSNE, accuracy) --> file: 4_evaluation_of_3.py
 
 Run the code by using "python [file name]" command at linux system.
 
