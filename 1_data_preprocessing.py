@@ -1,10 +1,10 @@
-#WildTrack AI - Data PreProcessing
+#reference: (WildTrack AI) https://github.com/jtdsouza/w251-WildTrackAI.git
+#Data PreProcessing
 
 #Set up TF 2.0
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 #try:
-  # %tensorflow_version only exists in Colab.
  # %tensorflow_version 2.x
 #except Exception:
 #  pass
