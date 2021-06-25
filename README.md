@@ -20,7 +20,7 @@ preprocess>
   2. data augmentation of mi and pp --> file: aug.ipynb
 
 triplet loss>
-  1. preporcess (change size to 224x224(VGG16, MobileNetv2, Exception, ResNet) or 331x331(NASNetLarge))
+  1. preprocess (change size to 224x224(VGG16, MobileNetv2, Exception, ResNet) or 331x331(NASNetLarge))
   2. classify species (in this project only dog exist)
   3. identification classification (bori, mi, pony, pp, wangbal)
   4. evaluation (tSNE, accuracy)
