@@ -1,6 +1,6 @@
 # AIcapstonedesign2021
 AI capstone design 2021
-The project was produced as the final project for the AI capstoneedesign 2021 class.
+The project was produced as the final project for the AI capstoneedesign 2021 class.\n
 Participants are Lee Ho-jeong and Hwang Hye-min.
 
 triplet loss 
