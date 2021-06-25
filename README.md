@@ -4,3 +4,5 @@ AI capstone design 2021
 classification of footprints in same species
 
 with wangbal, pp, pony, mi, bori
+
+can see the code in master branch
