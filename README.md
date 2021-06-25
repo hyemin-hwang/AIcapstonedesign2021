@@ -14,6 +14,7 @@ You can accces the dataset at this URL:
 https://kau365-my.sharepoint.com/:f:/g/personal/doindahj_kau_kr/ErY1Eo70vRxPhYw0ja90X48BjThy91qXOE2tyzKTgqXxQw?e=pTAOfl
 
 preprocess>
+  0. Create a text file where the paths to images are stored.(text file will be used in data augmentation code) --> file: txt.ipynb
   1. crop the image for showing one footprint --> file: crop_code.ipynb
   2. data augmentation of mi and pp --> file: aug.ipynb
 
