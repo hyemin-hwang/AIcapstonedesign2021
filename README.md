@@ -5,4 +5,4 @@ classification of footprints in same species
 
 with wangbal, pp, pony, mi, bori
 
-can see the code in master branch
+you can see the code in master branch
