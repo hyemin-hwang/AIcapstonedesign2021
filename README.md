@@ -8,6 +8,10 @@ dataset
 1. Cropped Images of Original Images (for One footprint)
 2. augmented Images of mi and pp
 
+You can accces the dataset at this URL:
+
+https://kau365-my.sharepoint.com/:f:/g/personal/doindahj_kau_kr/ErY1Eo70vRxPhYw0ja90X48BjThy91qXOE2tyzKTgqXxQw?e=pTAOfl
+
 preprocess
 1. crop the image for showing one footprint
 2. data augmentation of mi and pp
